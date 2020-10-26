@@ -1,0 +1,16 @@
+stages:
+    - build
+
+default:
+    image: schickling/latex
+
+build:
+    stage: build
+    
+    script:
+        - bash build.sh
+    
+    artifacts:
+        paths:
+            - build/
+        expire_in: 1 month
