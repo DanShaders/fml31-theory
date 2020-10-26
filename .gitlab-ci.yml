@@ -12,5 +12,5 @@ build:
     
     artifacts:
         paths:
-            - build/
+            - build/*.pdf
         expire_in: 1 month
