@@ -2,5 +2,5 @@ build/*
 *.aux
 *.log
 *.out
-*.pdf
+main.pdf
 *.toc
