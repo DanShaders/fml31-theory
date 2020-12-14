@@ -17,6 +17,7 @@
 \usepackage{framed}
 \usepackage{xcolor}
 \usepackage{wrapfig}
+\usepackage{amsthm}
 \usepackage[version=4]{mhchem}
 \usepackage[normalem]{ulem}
 \usepackage[pdfusetitle]{hyperref}
@@ -41,27 +42,9 @@
 \newcommand{\law}[2]{\begin{oframed}\textbf{#1}\par#2\end{oframed}}
 \newcommand{\ulaw}[1]{\begin{oframed}#1\end{oframed}}
 \newcommand{\df}[2]{\textbf{#1} -- #2\par}
-\newenvironment{proof}{
-	Д\hspace{0.1em}
-	о\hspace{0.1em}
-	к\hspace{0.1em}
-	а\hspace{0.1em}
-	з\hspace{0.1em}
-	а\hspace{0.1em}
-	т\hspace{0.1em}
-	е\hspace{0.1em}
-	л\hspace{0.1em}
-	ь\hspace{0.1em}
-	с\hspace{0.1em}
-	т\hspace{0.1em}
-	в\hspace{0.1em}
-	о\par
-	\begin{adjustwidth}{15px}{0px}
-	\par
-}{
-	$\blacksquare$\end{adjustwidth}
-	\bigskip
-}
+
 \newcommand{\dlta}{\text{d}}
 \newcommand{\thus}{\;\Rightarrow\;}
 \newcommand{\isconst}{=\text{const}}
+
+\renewcommand\qedsymbol{$\blacksquare$}
