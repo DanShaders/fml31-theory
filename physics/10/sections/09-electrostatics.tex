@@ -65,7 +65,7 @@ TODO: те самые "маленькие теоремы-следствия" и�
 	\[ F_n = \Phi \sigma \]
 }
 \begin{proof}
-	\[ \Phi = \oiint_{S} \vec{E} \cdot \dlta \vec{S} = \oint_{S} \vec{E} \cdot \dlta \vec{S} = \oint_{S} \abs{\vec{E}} \cdot \dlta S \cdot \cos{\alpha} = \oint_{S} E_n \dlta S = \oint_{S} \frac{F_n}{\sigma \dlta S} \dlta S = \oint_{S} \frac{F_n}{\sigma} = \frac{F_n}{\sigma} \]
+	\[ \Phi = \oiint_{S} \vec{E} \cdot \dlta \vec{S} = \oiint_{S} \vec{E} \cdot \dlta \vec{S} = \oiint_{S} \abs{\vec{E}} \cdot \dlta S \cdot \cos{\alpha} = \oiint_{S} E_{in} \dlta S = \oiint_{S} \frac{F_{in}}{\sigma \dlta S} \dlta S = \oiint_{S} \frac{F_{in}}{\sigma} = \frac{F_n}{\sigma} \]
 	\[ F_n = \Phi \sigma \]
 \end{proof}
 
@@ -75,6 +75,7 @@ TODO: те самые "маленькие теоремы-следствия" и�
 \ulaw{
 	Работа э/с поля точечного заряда $Q$ при перемещении другого заряда $q$ из положения $A$ в положение $B$ равна
 	\[ A = kqQ \left( \frac{1}{r_A} - \frac{1}{r_B} \right) \]
+	Где $r_A$ и $r_B$ -- расстояния между зарядами в положениях $A$ и $B$, соответственно.
 }
 \begin{proof}
 	\[ A = \int_A^B F \cdot \dlta \vec{r} = \int_A^B \left( \frac{k \cdot q \cdot Q}{r^3} \vec{r} \right) \cdot \dlta \vec{r} = kqQ \cdot \int_A^B \frac{\vec{r} \dlta \vec{r}}{r^3} = kqQ \left(-\frac{1}{r} \right) \bigg|_{A}^{B} = kqQ \left( \frac{1}{r_A} - \frac{1}{r_B} \right) \]
@@ -101,7 +102,7 @@ TODO: те самые "маленькие теоремы-следствия" и�
 \end{proof}
 
 \df{Градиент}{вектор, своим направлением указывающий направление наибольшего возрастания некоторой скалярной величины, модуль которого пропорционален скорости роста этой величины.}
-\[ \grad f(x, y, z) = \left( \frac{\partial f}{\partial x},\;\frac{\partial f}{\partial y},\;\frac{\partial f}{\partial z} \right) \]
+\[ (\grad f)(x, y, z) = \left( \frac{\partial f}{\partial x},\;\frac{\partial f}{\partial y},\;\frac{\partial f}{\partial z} \right) \]
 
 \ulaw{
 	Напряженность э/с поля равна минус градиенту потенциала этого поля.
