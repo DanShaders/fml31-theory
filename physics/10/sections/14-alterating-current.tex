@@ -1,0 +1,69 @@
+\section{Переменный электрический ток}
+
+
+
+\subsection{Трансформатор}
+
+\df{Трансформатор}{прибор переменного тока, который применяется для повышения или понижения напряжения, основан на явлении ЭМИ.}
+\df{Коэффициент трансформации}{отношение количество витков в первичной обмотке ко вторичной.}
+\[ k = \frac{n_1}{n_2} \]
+
+Здесь и далее будем считать, что мы рассматриваем идеальный трансформатор с количеством витков $n_1$ и $n_2$ на первичной и вторичной обмотках соответственно; индуктивности обмоток -- $L_1$ и $L_2$; напряжение на источнике изменяется по закону $U_1 = \varepsilon(t) = \varepsilon_A \cos(\Omega t) $.
+
+\law{Отношение индуктивностей обмоток (без доказательства)}{
+	\[ \frac{L_1}{L_2} = \left( \frac{n_1}{n_2} \right)^2 \]
+}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\def\svgwidth{0.4\textwidth}
+	\input{images/transformer-scheme.pdf_tex}
+	\caption{Схема идеального трансформатора}
+	\label{fig:transformer-scheme}
+\end{wrapfigure}
+
+\mbox{
+	\begin{minipage}{0.6\textwidth - \columnsep}
+		\ulaw{
+			Отношение напряжений на обмотках идеального трансформатора равно коэффициенту трансформации.
+			\[ \frac{U_1}{U_2} = \frac{n_1}{n_2} = k \]
+		}
+	\end{minipage}
+}
+
+\begin{proof}
+	Пусть $\varepsilon_{i}$ - ЭДС самоиндукции в одном витке обмотки трансформатора. $\Phi_\text{общ}$ -- поток, пронизывающий магнитопровод. Тогда согласно закону ЭМИ
+	\[ \varepsilon_{i} = -\frac{\dlta \Phi_\text{общ}}{\dlta t} \]
+	Закон Ома для первичной обмотки:
+	\[ \varepsilon + n_1 \varepsilon_i = 0 \]
+	\[ \varepsilon_i = -\frac{\varepsilon}{n_1} \]
+	\[ U_2 = \varepsilon_2 = n_2 \varepsilon_i = \varepsilon \frac{n_2}{n_1} = \frac{U_1}{k} \]
+\end{proof}
+
+Заметим, что схема трансформатора на холостом ходу -- это индуктивность, подключённая к источнику. Соответственно, тогда сила тока в первичной обмотке
+\[I(t) = \frac{\varepsilon_A}{X_L} \cos \left( \Omega t - \frac{\pi}{2} \right) = \frac{\varepsilon_A}{L \Omega} \sin(\Omega t)\]
+
+\ulaw{
+	При подключении ко вторичной обмотке в качестве нагрузки активного сопротивления $R$, сила тока в первичной обмотке задаётся как
+	\[ I_1(t) = \frac{\varepsilon_A}{k^2R} \cos(\Omega t) + \frac{\varepsilon_A}{L_1 \Omega} \sin(\Omega t) \]
+}
+\begin{proof}
+	Из недоказанного утвержедения:
+	\[ \frac{L_1}{L_2} = \left( \frac{n_1}{n_2} \right)^2 \thus L_2 = \frac{L_1 n_2^2}{n_1^2} \]
+
+	Из прошлого доказательства:
+	\[ \varepsilon_{i} = -\frac{\dlta \Phi_\text{общ}}{\dlta t} \thus \frac{\varepsilon}{n_1} = \frac{\dlta \Phi_\text{общ}}{\dlta t} \]
+	\[ \int \frac{\varepsilon_A \cos(\Omega t)}{n_1} \dlta t = \int \dlta \Phi_\text{общ} \]
+	\[ \Phi_\text{общ} = \frac{\varepsilon_A \sin(\Omega t)}{\Omega n_1} + c \text{ (здесь надо поверить, что $c = 0$)} \]
+
+	Общий поток складывается из потоков двух катушек. (В формуле $\Phi = LI$ $\Phi$ -- это поток через катушку, а не через сечение магнитопровода, чтобы получить последнее надо разделить его на $n_i$)
+
+	\[ \Phi_\text{общ} = \Phi_1 + \Phi_2 \]
+	\[ \frac{\varepsilon_A \sin(\Omega t)}{\Omega n_1}
+	= \frac{L_1 I(t)}{n_1} + \frac{L_2 I_2(t)}{n_2}
+	= \frac{L_1 I(t)}{n_1} - \frac{L_2}{n_2} \frac{\varepsilon(t)}{R k}
+	= \frac{L_1 I(t)}{n_1} - \frac{L_1 n_2}{n_1^2} \frac{\varepsilon(t)}{R k} \]
+	\[ \frac{\varepsilon_A \sin(\Omega t)}{L_1 \Omega} = I(t) - \frac{n_2}{n_1} \frac{\varepsilon(t)}{R k} \]
+	\[ I(t) = \frac{\varepsilon_A \cos(\Omega t)}{k^2R} + \frac{\varepsilon_A \sin(\Omega t)}{L_1 \Omega} \]
+\end{proof}
+
+Из последней теормы тривиально выводится амплитуда тока в первичной обмотке\\($\displaystyle I_A = \varepsilon_A \sqrt{\frac{1}{L_1^2\omega^2} + \frac{1}{k^4R^2}}$) и сдвиг фазы тока относительно напряжения там же ($\displaystyle \Delta \phi = \arctan{\left( \frac{k^2R}{L_1 \Omega} \right)}$). Отметим, что предложенный метод легко обобщается на случай произвольной ВАХ нагрузки, достаточно заменить преобразование $I_2(t)$ в выражение с $\frac{\varepsilon(t)}{k}$.
